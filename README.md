@@ -1,88 +1,187 @@
-# Music App - Audio Player & Discovery Platform
+# 🎵 Music App
 
-## Overview
-A comprehensive music application featuring audio playback, library management, and music discovery features. Stream your favorite tracks with a clean, modern interface.
+<div align="center">
 
-## Features (MVP)
-- 🎵 Audio playback controls
-- 📚 Music library organization
-- 🔍 Search functionality
-- ♫ Playlists management
-- 🔄 Background playback support
-- 🎨 Customizable player interface
-- 🌙 Dark/Light theme support
-- 🎶 Volume and speed controls
+![Flutter](https://img.shields.io/badge/Flutter-3.24.0-02569B?style=for-the-badge&logo=flutter)
+![Dart](https://img.shields.io/badge/Dart-3.5.0-0175C2?style=for-the-badge&logo=dart)
+![Material](https://img.shields.io/badge/Material%20Design-3-757DE8?style=for-the-badge&logo=material-design)
+![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
+![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Deployed-222?style=for-the-badge&logo=github)
 
-## Planned Features (Phase 2)
-- 👥 Social sharing and collaboration
-- 📰 Music news and recommendations
-- ⭐ Artist profiles
-- 🏆 Play statistics and achievements
-- 💿 Album art caching
-- 📱 Notification center integration
+**🎶 A beautiful Flutter music player app with a rich purple/deep blue theme**
 
-## Getting Started
+**[Live Demo](https://govindtank.github.io/music-app/)** | **[Report Bug](https://github.com/govindtank/music-app/issues)**
+
+</div>
+
+---
+
+## ✨ Features
+
+### 🎵 Core Features
+- **Home Screen** - Discover music with featured sections and categories
+- **Favorites** - Save and manage your favorite tracks
+- **Downloads** - Offline access to downloaded tracks
+- **Daily Niyams** - Spiritual practice reminders and guided activities
+
+### 🎨 UI/UX Features
+- **Rich Purple/Deep Blue Theme** - Beautiful music app aesthetic
+- **Animated Splash Screen** - Smooth app launch experience
+- **Polished Bottom Navigation** - Modern, animated navigation bar
+- **Smooth Page Transitions** - Seamless navigation experience
+- **Responsive Design** - Works great on web and mobile
+- **Shimmer Loading Effects** - Elegant loading states
+- **Card-based Track Lists** - Beautiful track item styling
+
+### 🛠 Technical Features
+- **Material Design 3** - Modern, consistent design system
+- **State Management** - Bloc pattern for clean architecture
+- **Audio Service Integration** - Full audio playback support
+- **Cached Network Images** - Efficient image loading
+- **Responsive Sizing** - Adaptive layouts with responsive_sizer
+
+---
+
+## 📸 Screenshots
+
+| Home | Favorites | Downloads | Niyams |
+|:----:|:---------:|:---------:|:------:|
+| ![Home](https://via.placeholder.com/300x600/1A1A2E/9C27B0?text=Home) | ![Favorites](https://via.placeholder.com/300x600/1A1A2E/E91E63?text=Favorites) | ![Downloads](https://via.placeholder.com/300x600/1A1A2E/4CAF50?text=Downloads) | ![Niyams](https://via.placeholder.com/300x600/1A1A2E/9C27B0?text=Niyams) |
+
+---
+
+## 🏗️ Tech Stack
+
+| Category | Technology |
+|----------|------------|
+| **Framework** | Flutter 3.24.0 |
+| **Language** | Dart 3.5.0 |
+| **State Management** | flutter_bloc |
+| **Audio** | audio_service |
+| **Design** | Material Design 3 |
+| **Images** | cached_network_image |
+| **Responsive** | responsive_sizer |
+| **DI** | get_it |
+| **CI/CD** | GitHub Actions |
+
+---
+
+## 📁 Project Structure
+
+```
+music-app/
+├── lib/
+│   ├── main.dart                 # App entry point with UI
+│   ├── bloc/
+│   │   └── track_list_bloc.dart # Track list state management
+│   ├── models/
+│   │   ├── track.dart
+│   │   ├── track_model.dart
+│   │   ├── section_model.dart
+│   │   ├── playlist.dart
+│   │   ├── album.dart
+│   │   └── panel.dart
+│   ├── screens/
+│   │   └── now_playing_screen.dart
+│   ├── services/
+│   │   ├── audio_service.dart
+│   │   ├── api_service.dart
+│   │   ├── database_service.dart
+│   │   └── data_initialization_service.dart
+│   ├── utils/
+│   │   └── position_data.dart
+│   └── widgets/
+│       ├── miniplayer.dart
+│       └── enhanced_track_list.dart
+├── build/
+│   └── web/                     # Production build output
+├── .github/
+│   └── workflows/
+│       └── deploy.yml           # CI/CD workflow
+├── pubspec.yaml
+└── README.md
+```
+
+---
+
+## 🚀 Getting Started
 
 ### Prerequisites
-- [Flutter](https://flutter.dev) SDK >= 3.5.0
-- [Dart](https://dart.dev) SDK >= 3.5.0
+- Flutter SDK 3.24.0 or higher
+- Dart SDK 3.5.0 or higher
 
 ### Installation
+
 ```bash
-git clone https://github.com/govind/music_app.git
-cd music_app
+# Clone the repository
+git clone https://github.com/govindtank/music-app.git
+cd music-app
+
+# Install dependencies
 flutter pub get
+
+# Run the app
 flutter run
 ```
 
-### Development
+### Build for Web
+
 ```bash
-# Run on device or emulator
-flutter run -d <device_id>
+# Build release
+flutter build web --release --base-href /music-app/
 
-# Debug mode
-flutter run --debug
-
-# Hot reload for quick iteration
-flutter run
+# Serve locally
+cd build/web
+python3 -m http.server 8080
 ```
 
-## Project Structure
-```
-music_app/
-├── lib/
-│   ├── main.dart                  # App entry point
-│   ├── models/                    # Data models
-│   │   └── song.dart              # Song data model
-│   ├── screens/                   # UI screens
-│   │   ├── home_screen.dart       # Main dashboard
-│   │   ├── player_screen.dart     # Audio player UI
-│   │   ├── library_screen.dart    # Music library
-│   │   └── search_screen.dart     # Search interface
-│   ├── services/                  # Business logic
-│   │   ├── audio_service.dart     # Audio playback
-│   │   └── music_provider.dart    # Data fetching
-│   └── widgets/                   # Reusable components
-├── pubspec.yaml                  # Dependencies and metadata
-├── analysis_options.yaml         # Linting rules
-└── README.md                    # This file
+---
+
+## 🌐 Deployment
+
+The app is automatically deployed to GitHub Pages using GitHub Actions on every push to `main`.
+
+### Manual Deployment
+
+```bash
+# Build the web app
+flutter build web --release --base-href /music-app/
+
+# Deploy to GitHub Pages
+# Push the build/web folder to gh-pages branch
 ```
 
-## Audio Service
-The app uses Flutter's audio_player package for robust background playback:
-- Plays music even when app is in background
-- Lock screen controls
-- Picture-in-picture mode support
-- Persistent audio session
+---
 
-## Dependencies
-Key packages (from pubspec.yaml):
-- `audio_player`: Core playback functionality
-- `provider`: State management
-- Additional UI and utility packages as needed
+## 🤝 Contributing
 
-## Contributing
-Pull requests are welcome! Please open an issue first to discuss major changes.
+Contributions are welcome! Feel free to:
 
-## License
-MIT License - See LICENSE file for details.
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Submit a pull request
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## 👨‍💻 Author
+
+**Govind Tank**
+- GitHub: [@govindtank](https://github.com/govindtank)
+- Email: govindtank600@gmail.com
+
+---
+
+<div align="center">
+
+**⭐ Star this repo if you find it helpful!**
+
+Made with ❤️ using Flutter
+
+</div>
