@@ -22,7 +22,7 @@
 - **Home Screen** - Discover music with featured sections and categories
 - **Favorites** - Save and manage your favorite tracks
 - **Downloads** - Offline access to downloaded tracks
-- **Daily Niyams** - Spiritual practice reminders and guided activities
+- **Library** - Browse and manage your playlists
 
 ### 🎨 UI/UX Features
 - **Rich Purple/Deep Blue Theme** - Beautiful music app aesthetic
@@ -44,9 +44,9 @@
 
 ## 📸 Screenshots
 
-| Home | Favorites | Downloads | Niyams |
-|:----:|:---------:|:---------:|:------:|
-| ![Home](https://via.placeholder.com/300x600/1A1A2E/9C27B0?text=Home) | ![Favorites](https://via.placeholder.com/300x600/1A1A2E/E91E63?text=Favorites) | ![Downloads](https://via.placeholder.com/300x600/1A1A2E/4CAF50?text=Downloads) | ![Niyams](https://via.placeholder.com/300x600/1A1A2E/9C27B0?text=Niyams) |
+| Home | Favorites | Downloads | Library |
+|:----:|:---------:|:---------:|:--------:|
+| ![Home](https://via.placeholder.com/300x600/1A1A2E/9C27B0?text=Home) | ![Favorites](https://via.placeholder.com/300x600/1A1A2E/E91E63?text=Favorites) | ![Downloads](https://via.placeholder.com/300x600/1A1A2E/4CAF50?text=Downloads) | ![Library](https://via.placeholder.com/300x600/1A1A2E/9C27B0?text=Library) |
 
 ---
 
@@ -74,13 +74,6 @@ music-app/
 │   ├── main.dart                 # App entry point with UI
 │   ├── bloc/
 │   │   └── track_list_bloc.dart # Track list state management
-│   ├── models/
-│   │   ├── track.dart
-│   │   ├── track_model.dart
-│   │   ├── section_model.dart
-│   │   ├── playlist.dart
-│   │   ├── album.dart
-│   │   └── panel.dart
 │   ├── screens/
 │   │   └── now_playing_screen.dart
 │   ├── services/

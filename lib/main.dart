@@ -220,7 +220,7 @@ class _SplashScreenState extends State<SplashScreen>
                       ),
                       const SizedBox(height: 8),
                       Text(
-                        'Your Spiritual Music Journey',
+                        'Stream & Download Music',
                         style: TextStyle(
                           fontSize: 14,
                           color: Colors.grey.shade400,
@@ -271,7 +271,7 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
     HomeScreen(),
     FavoritesScreen(),
     DownloadsScreen(),
-    NiyamsScreen(),
+    PlaylistsScreen(),
   ];
 
   @override
@@ -359,7 +359,7 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
                 _buildNavItem(0, Icons.home_rounded, 'Home'),
                 _buildNavItem(1, Icons.favorite_rounded, 'Favorites'),
                 _buildNavItem(2, Icons.download_rounded, 'Downloads'),
-                _buildNavItem(3, Icons.self_improvement_rounded, 'Niyams'),
+                _buildNavItem(3, Icons.library_music_rounded, 'Library'),
               ],
             ),
           ),
@@ -688,7 +688,7 @@ class HomeScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(20),
                   ),
                   child: const Text(
-                    '✨ Featured Collection',
+                    '✨ Featured Playlist',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 12,
@@ -698,7 +698,7 @@ class HomeScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 16),
                 const Text(
-                  'Divine Kirtan\nCollection',
+                  'Top Hits\nCollection',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 28,
@@ -739,9 +739,9 @@ class HomeScreen extends StatelessWidget {
 
   Widget _buildCategoriesSection(BuildContext context) {
     final categories = [
-      {'icon': Icons.queue_music_rounded, 'label': 'Kirtan', 'color': const Color(0xFFE91E63)},
-      {'icon': Icons.record_voice_over_rounded, 'label': 'Katha', 'color': const Color(0xFF2196F3)},
-      {'icon': Icons.auto_stories_rounded, 'label': 'Audiobook', 'color': const Color(0xFF4CAF50)},
+      {'icon': Icons.music_note_rounded, 'label': 'Tracks', 'color': const Color(0xFFE91E63)},
+      {'icon': Icons.playlist_play_rounded, 'label': 'Playlists', 'color': const Color(0xFF2196F3)},
+      {'icon': Icons.album_rounded, 'label': 'Albums', 'color': const Color(0xFF4CAF50)},
       {'icon': Icons.favorite_rounded, 'label': 'Favorites', 'color': const Color(0xFFFF9800)},
     ];
 
@@ -840,7 +840,7 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
         title: Text(
-          'Divine Kirtan ${index + 1}',
+          'Track ${index + 1}',
           style: const TextStyle(
             fontWeight: FontWeight.w600,
             fontSize: 15,
@@ -1315,19 +1315,19 @@ class DownloadsScreen extends StatelessWidget {
   }
 }
 
-// ==================== NIYAMS SCREEN ====================
-class NiyamsScreen extends StatelessWidget {
-  const NiyamsScreen({super.key});
+// ==================== PLAYLISTS/LIBRARY SCREEN ====================
+class PlaylistsScreen extends StatelessWidget {
+  const PlaylistsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final niyams = [
-      {'title': 'Morning Meditation', 'subtitle': 'Start your day with peace', 'icon': Icons.wb_sunny_rounded, 'color': const Color(0xFFFF9800)},
-      {'title': 'Evening Prayer', 'subtitle': 'End your day mindfully', 'icon': Icons.nightlight_rounded, 'color': const Color(0xFF3F51B5)},
-      {'title': 'Chanting', 'subtitle': 'Sacred mantras & kirtans', 'icon': Icons.record_voice_over_rounded, 'color': const Color(0xFFE91E63)},
-      {'title': 'Scripture Reading', 'subtitle': 'Daily wisdom from texts', 'icon': Icons.auto_stories_rounded, 'color': const Color(0xFF4CAF50)},
-      {'title': 'Breathwork', 'subtitle': 'Pranayama exercises', 'icon': Icons.air_rounded, 'color': const Color(0xFF00BCD4)},
-      {'title': 'Gratitude', 'subtitle': 'Daily gratitude practice', 'icon': Icons.favorite_rounded, 'color': const Color(0xFF9C27B0)},
+    final playlists = [
+      {'title': 'Chill Vibes', 'subtitle': '15 tracks • 1h 2m', 'color': const Color(0xFF9C27B0)},
+      {'title': 'Workout Mix', 'subtitle': '20 tracks • 1h 25m', 'color': const Color(0xFFE91E63)},
+      {'title': 'Focus Flow', 'subtitle': '12 tracks • 45m', 'color': const Color(0xFF2196F3)},
+      {'title': 'Party Hits', 'subtitle': '25 tracks • 1h 45m', 'color': const Color(0xFF4CAF50)},
+      {'title': 'Road Trip', 'subtitle': '18 tracks • 1h 15m', 'color': const Color(0xFFFF9800)},
+      {'title': 'Late Night', 'subtitle': '10 tracks • 40m', 'color': const Color(0xFF00BCD4)},
     ];
 
     return Scaffold(
@@ -1366,7 +1366,7 @@ class NiyamsScreen extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(15),
                               ),
                               child: const Icon(
-                                Icons.self_improvement_rounded,
+                                Icons.library_music_rounded,
                                 color: Color(0xFF9C27B0),
                                 size: 28,
                               ),
@@ -1376,7 +1376,7 @@ class NiyamsScreen extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Daily Niyams',
+                                  'Your Library',
                                   style: TextStyle(
                                     fontSize: 28,
                                     fontWeight: FontWeight.bold,
@@ -1385,7 +1385,7 @@ class NiyamsScreen extends StatelessWidget {
                                 ),
                                 SizedBox(height: 4),
                                 Text(
-                                  'Your spiritual practice',
+                                  '6 playlists created',
                                   style: TextStyle(
                                     color: Colors.white70,
                                     fontSize: 14,
@@ -1413,7 +1413,7 @@ class NiyamsScreen extends StatelessWidget {
               ),
               delegate: SliverChildBuilderDelegate(
                 (context, index) {
-                  final niyam = niyams[index];
+                  final playlist = playlists[index];
                   return GestureDetector(
                     onTap: () {},
                     child: Container(
@@ -1422,13 +1422,13 @@ class NiyamsScreen extends StatelessWidget {
                           begin: Alignment.topLeft,
                           end: Alignment.bottomRight,
                           colors: [
-                            (niyam['color'] as Color).withOpacity(0.3),
+                            (playlist['color'] as Color).withOpacity(0.3),
                             const Color(0xFF1A1A2E),
                           ],
                         ),
                         borderRadius: BorderRadius.circular(20),
                         border: Border.all(
-                          color: (niyam['color'] as Color).withOpacity(0.3),
+                          color: (playlist['color'] as Color).withOpacity(0.3),
                           width: 1,
                         ),
                       ),
@@ -1438,12 +1438,12 @@ class NiyamsScreen extends StatelessWidget {
                           Container(
                             padding: const EdgeInsets.all(16),
                             decoration: BoxDecoration(
-                              color: (niyam['color'] as Color).withOpacity(0.2),
+                              color: (playlist['color'] as Color).withOpacity(0.2),
                               shape: BoxShape.circle,
                             ),
                             child: Icon(
-                              niyam['icon'] as IconData,
-                              color: niyam['color'] as Color,
+                              Icons.playlist_play_rounded,
+                              color: playlist['color'] as Color,
                               size: 32,
                             ),
                           ),
@@ -1451,7 +1451,7 @@ class NiyamsScreen extends StatelessWidget {
                           Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 12),
                             child: Text(
-                              niyam['title'] as String,
+                              playlist['title'] as String,
                               style: const TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 14,
@@ -1466,7 +1466,7 @@ class NiyamsScreen extends StatelessWidget {
                           Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 12),
                             child: Text(
-                              niyam['subtitle'] as String,
+                              playlist['subtitle'] as String,
                               style: TextStyle(
                                 color: Colors.grey.shade500,
                                 fontSize: 11,
@@ -1483,13 +1483,13 @@ class NiyamsScreen extends StatelessWidget {
                               vertical: 6,
                             ),
                             decoration: BoxDecoration(
-                              color: (niyam['color'] as Color).withOpacity(0.2),
+                              color: (playlist['color'] as Color).withOpacity(0.2),
                               borderRadius: BorderRadius.circular(12),
                             ),
                             child: Text(
-                              'Start',
+                              'Play',
                               style: TextStyle(
-                                color: niyam['color'] as Color,
+                                color: playlist['color'] as Color,
                                 fontSize: 11,
                                 fontWeight: FontWeight.w600,
                               ),
@@ -1500,7 +1500,7 @@ class NiyamsScreen extends StatelessWidget {
                     ),
                   );
                 },
-                childCount: niyams.length,
+                childCount: playlists.length,
               ),
             ),
           ),
